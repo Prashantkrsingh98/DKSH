@@ -12,15 +12,15 @@ function App() {
   const [loginStatus, setLoginStatus] = useState(false);
   return (
     <>
-      {loginStatus ? (
+      {/* {loginStatus ? (
         <SSOLogin setLoginStatus={setLoginStatus} />
       ) : (
         <ConnectClient />
         // <ClientSalesDashboard />
-      )}
+      )} */}
 
 
-{/* <PowerBIEmbed
+<PowerBIEmbed
 	embedConfig = {{
 		type: 'report',   // Supported types: report, dashboard, tile, visual and qna
 		id: 'ed83a823-c935-4673-997a-a18bba01d5c8',
@@ -51,7 +51,7 @@ function App() {
 	getEmbeddedComponent = { (embeddedReport) => {
 		window.report = embeddedReport;
 	}}
-/> */}
+/>
     </>
   );
 }
