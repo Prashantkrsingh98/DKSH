@@ -1,0 +1,23 @@
+.headerFlexbox{
+    display: flex;
+    width: 100%;
+    height: 5vh;
+    background-color: #ffffff;
+    justify-content: space-between;
+}
+
+.headerFlexStart{
+    display: flex;
+    align-items: center;
+    padding-left: 21px; 
+}
+
+.headerFlexEnd{
+    display: flex;
+    align-items: center;
+    padding-right: 21px;
+}
+
+.logo{
+    height: 5vw;   
+  } 
