@@ -7,7 +7,9 @@ import Button from "@mui/material/Button";
 import IconButton from "@mui/material/IconButton";
 import PieChartIcon from "@mui/icons-material/PieChart";
 import Typography from "@mui/material/Typography";
+import { CardActionArea } from "@mui/material";
 import Paper from "@mui/material/Paper";
+import { height } from "@mui/system";
 
 const bull = (
   <Box
@@ -26,6 +28,11 @@ const bull = (
 export default function Cards(props) {
   const [raised, setRaised] = useState(false);
   console.log(props.header);
+
+  const onCardClick = () => {
+    console.log("test");
+    props.onClickCard(props.path)
+  };
 
   return (
     <Box
@@ -51,40 +58,44 @@ export default function Cards(props) {
         onMouseEnter={() => setRaised(true)}
         onMouseLeave={() => setRaised(false)}
       >
-        <CardContent>
-          {props.header ? (
-            <Typography
-              sx={{
-                fontStyle: "normal",
-                fontWeight: "750",
-                fonSize: "1.5rem",
-                lineHeight: "23px",
-                marginBottom: "0px",
-              }}
-              color="#594952"
-              gutterBottom
-            >
-              {props.header}
-            </Typography>
-          ) : (
-            <></>
-          )}
-          {props.subHeader ? (
-            <Typography sx={{ mb: 1, paddingBottom: "38px", color: "#bfbfc7" }}>
-              {props.subHeader}
-            </Typography>
-          ) : (
-            <></>
-          )}
-          {props.icon}
-          {props.bottomText ? (
-            <Typography sx={{ mb: 1, color: "#bfbfc7", fontSize: "0.98rem" }}>
-              {props.bottomText}
-            </Typography>
-          ) : (
-            <></>
-          )}
-        </CardContent>
+        <CardActionArea onClick={onCardClick} sx={{ height: "100%" }}>
+          <CardContent>
+            {props.header ? (
+              <Typography
+                sx={{
+                  fontStyle: "normal",
+                  fontWeight: "750",
+                  fonSize: "1.5rem",
+                  lineHeight: "23px",
+                  marginBottom: "0px",
+                }}
+                color="#594952"
+                gutterBottom
+              >
+                {props.header}
+              </Typography>
+            ) : (
+              <></>
+            )}
+            {props.subHeader ? (
+              <Typography
+                sx={{ mb: 1, paddingBottom: "38px", color: "#bfbfc7" }}
+              >
+                {props.subHeader}
+              </Typography>
+            ) : (
+              <></>
+            )}
+            {props.icon}
+            {props.bottomText ? (
+              <Typography sx={{ mb: 1, color: "#bfbfc7", fontSize: "0.98rem" }}>
+                {props.bottomText}
+              </Typography>
+            ) : (
+              <></>
+            )}
+          </CardContent>
+        </CardActionArea>
       </Card>
     </Box>
   );

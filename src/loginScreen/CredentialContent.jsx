@@ -32,6 +32,7 @@ function CredentialContent(props) {
     if (password === "") setPasswordErrorState(true);
     let randomNumber = Math.floor(Math.random() * 10);
     randomNumber>5?props.handleSnackBar(true):props.handleSnackBar(false)
+    randomNumber>5?props.handleLogInOnMainPage("/connect_client"):props.handleLogInOnMainPage("/")
   }
 
   return (

@@ -4,32 +4,21 @@ import SubHeader from "../resusableComponent/SubHeader";
 import Cards from "../resusableComponent/Cards";
 import IconButton from "@mui/material/IconButton";
 import PieChartIcon from "@mui/icons-material/PieChart";
-import LocalShippingIcon from "@mui/icons-material/LocalShipping";
-import "./ConnectClient.css";
+import "./DashboardList.css";
 
-// const home = "home";
-// const back = "back";
-const subHeading = "Connect Client";
-function ConnectClient(props) {
-  const headerAnalytics = "Analytical Solution";
+const home = "home";
+const back = "back";
+const subHeading = "Analytical Solution";
+function DashboardList(props) {
+  const headerAnalytics = "Sales Insight Dashboard";
   const subHeaderAnalytics = "Dashboards";
 
-  const headerInventory = "Inventory Tracking";
+  const headerInventory = "Inventory Insight Dashboard";
   const subHeaderInventory = "Inventory";
-
-  const action = () => {
-    console.log("Card is clicked");
-  };
 
   const analyticsIcon = (
     <IconButton aria-label="DashBoard" sx={{ padding: "2px" }}>
       <PieChartIcon sx={{ color: "#CB3B51", fontSize: "40px" }} />
-    </IconButton>
-  );
-
-  const trackingIcon = (
-    <IconButton aria-label="Track" sx={{ padding: "2px" }}>
-      <LocalShippingIcon sx={{ color: "#CB3B51", fontSize: "40px" }} />
     </IconButton>
   );
 
@@ -38,31 +27,33 @@ function ConnectClient(props) {
     props.history.push(path);
   };
 
+  const onClickBack = (path) => {
+    console.log("path", path);
+    props.history.push(path);
+  };
+
   return (
     <>
       <div>
         <Header />
-        <SubHeader subHeading={subHeading} />
+        <SubHeader back={back} subHeading={subHeading} onClickBack={onClickBack} path="/connect_client" />
       </div>
       <div className="tileContainer">
         <Cards
           header={headerAnalytics}
           subHeader={subHeaderAnalytics}
           icon={analyticsIcon}
-          action={action}
-          path="/connect_client/dashboard_List"
+          path="/connect_client/dashboard_List/client_sales_dashboard"
           onClickCard={onClickCard}
         />
         <Cards
           header={headerInventory}
           subHeader={subHeaderInventory}
-          icon={trackingIcon}
-          path="/connect_client/inventory_tracking"
-          onClickCard={onClickCard}
+          icon={analyticsIcon}
         />
       </div>
     </>
   );
 }
 
-export default ConnectClient;
+export default DashboardList;

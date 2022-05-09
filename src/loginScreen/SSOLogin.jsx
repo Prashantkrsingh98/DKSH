@@ -20,24 +20,33 @@ const useStyles = makeStyles((theme) => ({
     },
   },
 }));
-function SSOLogin() {
+function SSOLogin(props) {
   const [openSnack, setOpenSnack] = useState(false);
 
   const handleSnackBar = (status) => {
-      setOpenSnack(status);
-    };
+    setOpenSnack(status);
+  };
+
+  const handleLogInOnMainPage = (path) => {
+    console.log("path",path)
+    props.history.push(path);
+  };
 
   const classes = useStyles();
   return (
     <>
-      <Snackbar openSnack={openSnack} handleSnackBar={handleSnackBar}/>
+      <Snackbar openSnack={openSnack} handleSnackBar={handleSnackBar} />
       <div className={classes.root}>
         <div className="loginContainer">
           <div className="loginBox">
             <div className="loginBackground">
               <img src={logo} alt="DKSH" className="logo" />
             </div>
-            <CredentialContent handleSnackBar={handleSnackBar} setOpenSnack={setOpenSnack}/>
+            <CredentialContent
+              handleSnackBar={handleSnackBar}
+              setOpenSnack={setOpenSnack}
+              handleLogInOnMainPage={handleLogInOnMainPage}
+            />
           </div>
         </div>
       </div>
