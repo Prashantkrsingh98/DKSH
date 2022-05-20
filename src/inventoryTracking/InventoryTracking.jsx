@@ -19,7 +19,7 @@ function InventoryTracking() {
     <div
       dangerouslySetInnerHTML={{
         __html:
-          '<iframe height="600px" width="100%" marginTop="10px" src="https://flpnwc-uk81qreeol.dispatcher.ap1.hana.ondemand.com/sites?siteId=f2b0de7c-f576-43c6-95ef-e8dc0b3a9977 " />',
+          '<iframe height="600px" width="100%" marginTop="10px" src="https://flpnwc-uk81qreeol.dispatcher.ap1.hana.ondemand.com/" />',
       }}
     />
   );
